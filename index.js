@@ -1,8 +1,8 @@
 const YAML = require("yaml");
 const core = require("@actions/core");
 const fetch = require("node-fetch-commonjs");
-const { FormData, File } = require("node-fetch-commonjs");
-const { readFileSync } = require("fs");
+const FormData = require("form-data");
+const { readFileSync, createReadStream } = require("fs");
 
 function getLoginData() {
   const configPath = `${process.env.HOME}/jira/config.yml`;
@@ -35,12 +35,13 @@ async function addAttachment() {
   const login = getLoginData();
   const inputs = getInputs();
 
+  const filePath = "myfile.txt";
   const formData = new FormData();
-  const binary = new Uint8Array([97, 98, 99]);
-  const abc = new File([binary], "abc.txt", { type: "text/plain" });
+  const stats = fs.statSync(filePath);
+  const fileSizeInBytes = stats.size;
+  const fileStream = createReadStream(filePath);
 
-  formData.set("greeting", "Hello, world!");
-  formData.set("file-upload", abc, "new name.txt");
+  formData.append("file", fileStream, { knownLength: fileSizeInBytes });
 
   try {
     const res = await fetch(
@@ -58,6 +59,7 @@ async function addAttachment() {
       }
     );
 
+    console.log(`Res: ${res.status} ${res.statusText}`);
     const parsedRes = await res.text();
 
     console.log("Response", parsedRes);
