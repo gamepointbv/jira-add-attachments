@@ -20098,7 +20098,7 @@ async function addAttachment() {
   const login = getLoginData();
   const inputs = getInputs();
 
-  const filePath = "myfile.txt";
+  const filePath = inputs.attachmentPath;
   const formData = new FormData();
   const stats = statSync(filePath);
   const fileSizeInBytes = stats.size;

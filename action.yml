@@ -9,7 +9,7 @@ inputs:
     required: true
   attachmentFilePath:
     description: Attachment File Path
-    required: false
+    required: true
 runs:
   using: "node16"
   main: "./dist/index.js"
