@@ -6,14 +6,13 @@
   "repository": "https://github.com/gowthamreilly/jira-attachments",
   "author": "Gowtham Reilly",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "build": "ncc build index.js -s",
     "start": "ncc build index.js -w"
   },
   "dependencies": {
     "@actions/core": "^1.10.0",
-    "node-fetch": "^3.3.1",
+    "node-fetch-commonjs": "^3.2.4",
     "yaml": "^2.3.1"
   },
   "devDependencies": {
