@@ -1,0 +1,21 @@
+{
+  "name": "@gowthamreilly/jira-attachments",
+  "version": "1.0.0",
+  "description": "Add Attachments",
+  "main": "index.js",
+  "repository": "https://github.com/gowthamreilly/jira-attachments",
+  "author": "Gowtham Reilly",
+  "license": "MIT",
+  "scripts": {
+    "build": "ncc build index.js -s",
+    "start": "ncc build index.js --w"
+  },
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "node-fetch": "^3.3.1",
+    "yaml": "^2.3.1"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.36.1"
+  }
+}

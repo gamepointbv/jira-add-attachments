@@ -1,0 +1,15 @@
+name: Jira Attachment
+description: Add an attachment to an issue
+branding:
+  icon: "align-left"
+  color: "blue"
+inputs:
+  issue:
+    description: Key of the issue for the attachment
+    required: true
+  attachmentFilePath:
+    description: Attachment File Path
+    required: false
+runs:
+  using: "node16"
+  main: "./dist/index.js"
