@@ -9945,14 +9945,6 @@ exports["default"] = _default;
 
 /***/ }),
 
-/***/ 464:
-/***/ ((module) => {
-
-module.exports = eval("require")("node-fetch");
-
-
-/***/ }),
-
 /***/ 9491:
 /***/ ((module) => {
 
@@ -18554,12 +18546,12 @@ var __webpack_exports__ = {};
 const YAML = __nccwpck_require__(4083);
 const core = __nccwpck_require__(2186);
 const fetch = __nccwpck_require__(8735);
-const { FormData, File } = __nccwpck_require__(464);
-const fs = __nccwpck_require__(7147);
+const { FormData, File } = __nccwpck_require__(8735);
+const { readFileSync } = __nccwpck_require__(7147);
 
 function getLoginData() {
   const configPath = `${process.env.HOME}/jira/config.yml`;
-  const login = YAML.parse(fs.readFileSync(configPath, "utf8"));
+  const login = YAML.parse(readFileSync(configPath, "utf8"));
 
   if (
     !login.baseUrl ||
