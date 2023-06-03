@@ -58,7 +58,9 @@ async function addAttachment() {
       }
     );
 
-    console.log("Response", res);
+    const parsedRes = await res.text();
+
+    console.log("Response", parsedRes);
   } catch (err) {
     console.log("Error", err);
   }
