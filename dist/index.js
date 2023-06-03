@@ -18587,20 +18587,26 @@ async function addAttachment() {
   formData.set("greeting", "Hello, world!");
   formData.set("file-upload", abc, "new name.txt");
 
-  const res = await fetch(
-    `${login.baseUrl}/rest/api/3/issue/${inputs.issue}/attachments`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Basic ${Buffer.from(
-          `${login.email}:${login.token}`
-        ).toString("base64")}`,
-        Accept: "application/json",
-        "X-Atlassian-Token": "no-check",
-      },
-      body: formData,
-    }
-  );
+  try {
+    const res = await fetch(
+      `${login.baseUrl}/rest/api/3/issue/${inputs.issue}/attachments`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Basic ${Buffer.from(
+            `${login.email}:${login.token}`
+          ).toString("base64")}`,
+          Accept: "application/json",
+          "X-Atlassian-Token": "no-check",
+        },
+        body: formData,
+      }
+    );
+
+    console.log("Response", res);
+  } catch (err) {
+    console.log("Error", err);
+  }
 }
 
 addAttachment();
