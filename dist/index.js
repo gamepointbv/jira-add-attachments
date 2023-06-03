@@ -18364,7 +18364,8 @@ var __webpack_exports__ = {};
 const YAML = __nccwpck_require__(4083);
 const core = __nccwpck_require__(2186);
 const fetch = __nccwpck_require__(4429);
-const { FormData, File, fileFrom } = __nccwpck_require__(4429);
+const { FormData, File } = __nccwpck_require__(4429);
+const fs = __nccwpck_require__(7147);
 
 function getLoginData() {
   const configPath = `${process.env.HOME}/jira/config.yml`;
