@@ -1,12 +1,11 @@
-const YAML = require("yaml");
-const core = require("@actions/core");
-const fetch = require("node-fetch");
-const { FormData, File } = require("node-fetch");
-const fs = require("fs");
+import YAML from "yaml";
+import * as core from "@actions/core";
+import fetch, { FormData, File } from "node-fetch";
+import { readFileSync } from "fs";
 
 function getLoginData() {
   const configPath = `${process.env.HOME}/jira/config.yml`;
-  const login = YAML.parse(fs.readFileSync(configPath, "utf8"));
+  const login = YAML.parse(readFileSync(configPath, "utf8"));
 
   if (
     !login.baseUrl ||

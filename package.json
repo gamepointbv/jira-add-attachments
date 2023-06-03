@@ -6,9 +6,10 @@
   "repository": "https://github.com/gowthamreilly/jira-attachments",
   "author": "Gowtham Reilly",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "build": "ncc build index.js -s",
-    "start": "ncc build index.js --w"
+    "start": "ncc build index.js -w"
   },
   "dependencies": {
     "@actions/core": "^1.10.0",
