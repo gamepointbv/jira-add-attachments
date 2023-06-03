@@ -1,7 +1,8 @@
 const YAML = require("yaml");
 const core = require("@actions/core");
 const fetch = require("node-fetch");
-const { FormData, File, fileFrom } = require("node-fetch");
+const { FormData, File } = require("node-fetch");
+const fs = require("fs");
 
 function getLoginData() {
   const configPath = `${process.env.HOME}/jira/config.yml`;
