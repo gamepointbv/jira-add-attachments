@@ -2,7 +2,7 @@ const YAML = require("yaml");
 const core = require("@actions/core");
 const fetch = require("node-fetch-commonjs");
 const FormData = require("form-data");
-const { readFileSync, createReadStream } = require("fs");
+const { readFileSync, createReadStream, statSync } = require("fs");
 
 function getLoginData() {
   const configPath = `${process.env.HOME}/jira/config.yml`;
@@ -37,7 +37,7 @@ async function addAttachment() {
 
   const filePath = "myfile.txt";
   const formData = new FormData();
-  const stats = fs.statSync(filePath);
+  const stats = statSync(filePath);
   const fileSizeInBytes = stats.size;
   const fileStream = createReadStream(filePath);
 

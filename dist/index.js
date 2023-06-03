@@ -20065,7 +20065,7 @@ const YAML = __nccwpck_require__(4083);
 const core = __nccwpck_require__(2186);
 const fetch = __nccwpck_require__(8735);
 const FormData = __nccwpck_require__(4334);
-const { readFileSync, createReadStream } = __nccwpck_require__(7147);
+const { readFileSync, createReadStream, statSync } = __nccwpck_require__(7147);
 
 function getLoginData() {
   const configPath = `${process.env.HOME}/jira/config.yml`;
@@ -20100,7 +20100,7 @@ async function addAttachment() {
 
   const filePath = "myfile.txt";
   const formData = new FormData();
-  const stats = fs.statSync(filePath);
+  const stats = statSync(filePath);
   const fileSizeInBytes = stats.size;
   const fileStream = createReadStream(filePath);
 
