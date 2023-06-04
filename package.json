@@ -6,17 +6,26 @@
   "repository": "https://github.com/gowthamreilly/jira-attachments",
   "author": "Gowtham Reilly",
   "license": "MIT",
+  "type": "module",
   "scripts": {
-    "build": "ncc build index.js -s",
-    "start": "ncc build index.js -w"
+    "build": "tsc",
+    "start": "tsc -w"
   },
   "dependencies": {
     "@actions/core": "^1.10.0",
     "form-data": "^4.0.0",
-    "node-fetch-commonjs": "^3.2.4",
+    "node-fetch": "^3.3.1",
     "yaml": "^2.3.1"
   },
   "devDependencies": {
-    "@vercel/ncc": "^0.36.1"
+    "@types/node": "^20.2.5",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@vercel/ncc": "^0.36.1",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^35.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "typescript": "*"
   }
 }

@@ -1,12 +1,16 @@
-const YAML = require("yaml");
-const core = require("@actions/core");
-const fetch = require("node-fetch-commonjs");
-const FormData = require("form-data");
-const { readFileSync, createReadStream, statSync } = require("fs");
+import YAML from "yaml";
+import * as core from "@actions/core";
+import fetch from "node-fetch";
+import FormData from "form-data";
+import { readFileSync, createReadStream, statSync } from "fs";
 
 function getLoginData() {
   const configPath = `${process.env.HOME}/jira/config.yml`;
-  const login = YAML.parse(readFileSync(configPath, "utf8"));
+  const login: {
+    baseUrl: string;
+    email: string;
+    token: string;
+  } = YAML.parse(readFileSync(configPath, "utf8"));
 
   if (
     !login.baseUrl ||
@@ -60,9 +64,6 @@ async function addAttachment() {
     );
 
     console.log(`Res: ${res.status} ${res.statusText}`);
-    const parsedRes = await res.text();
-
-    console.log("Response", parsedRes);
   } catch (err) {
     console.log("Error", err);
   }
