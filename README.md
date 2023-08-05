@@ -31,6 +31,16 @@ jobs:
         JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
 
+    - name: Create
+      id: create
+      uses: atlassian/gajira-create@v3
+      with:
+        project: GA
+        issuetype: Build
+        summary: Build completed
+        description: Compare branch
+        fields: '{"customfield_10171": "test"}'
+
     - name: Add attachement to jira issue
       uses: z4ck404/jira-add-attachement@0.1.0
       with:
